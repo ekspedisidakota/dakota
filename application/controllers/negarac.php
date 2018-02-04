@@ -19,7 +19,7 @@ class negarac extends CI_Controller {
 
             'active_wilayah'=>'active',
             'active_negara'=>'active',
-            'data_negara'=>$this->adminm->getAllData('tbl_negara'),
+            'data_negara'=>$this->Global_model->getAllData('tbl_negara'),
             
         );
         $this->load->view('elements/header', $data);
@@ -37,7 +37,7 @@ class negarac extends CI_Controller {
             'nama'=>$this->input->post('nama'),
             'zona'=>$this->input->post('zona'),
         );
-        $this->adminm->insertData('tbl_negara',$data);
+        $this->Global_model->insertData('tbl_negara',$data);
         redirect("negarac/data_negara");
     }
 
@@ -50,13 +50,13 @@ class negarac extends CI_Controller {
             'nama'=>$this->input->post('nama'),
             'zona'=>$this->input->post('zona'),
         );
-        $this->adminm->updateData('tbl_negara',$data,$id);
+        $this->Global_model->updateData('tbl_negara',$data,$id);
         redirect("negarac/data_negara");
     }
 
     function proses_hapus_negara(){
         $id['negaraid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_negara',$id);
+        $this->Global_model->deleteData('tbl_negara',$id);
 
         redirect("negarac/data_negara");
     }

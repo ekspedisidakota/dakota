@@ -20,7 +20,7 @@ class tarifc extends CI_Controller {
             'formTitle'=>'Halaman Tarif',
 
             'active_tarif'=>'active',
-            'data_tarif'=>$this->adminm->getAllData('tbl_tarif'),
+            'data_tarif'=>$this->Global_model->getAllData('tbl_tarif'),
             
         );
         $this->load->view('elements/header', $data);
@@ -44,7 +44,7 @@ class tarifc extends CI_Controller {
             'harimax'=>$this->input->post('harimax'),
             'beratmin'=>$this->input->post('beratmin'),
         );
-        $this->adminm->insertData('tbl_tarif',$data);
+        $this->Global_model->insertData('tbl_tarif',$data);
         redirect("tarifc/data_tarif");
     }
 
@@ -64,13 +64,13 @@ class tarifc extends CI_Controller {
             'beratmin'=>$this->input->post('beratmin'),
         );
         
-        $this->adminm->updateData('tbl_tarif',$data,$id);
+        $this->Global_model->updateData('tbl_tarif',$data,$id);
         redirect("tarifc/data_tarif");
     }
 
     function proses_hapus_layanan(){
         $id['tarifid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_tarif',$id);
+        $this->Global_model->deleteData('tbl_tarif',$id);
 
         redirect("tarifc/data_tarif");
     }

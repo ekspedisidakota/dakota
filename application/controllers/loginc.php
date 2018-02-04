@@ -2,6 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class loginc extends CI_Controller {
+    function __construct(){
+        parent::__construct();
+        $this->load->model('Loginm');
+    }
 
 	public function index()
 	{
@@ -15,19 +19,6 @@ class loginc extends CI_Controller {
 		$this->load->view('pages/login',$data);
 	}
 
-    public function detail_data_batu()
-    {
-        $id_batu['id_batu']= $this->uri->segment(3);
-        $data=array(
-            'headerTitle'=>'Data Batu',
-            'formTitle'=>'Form detail Batu',
-
-            'active_batu'=>'active',            
-            'data_batu'=>$this->adminm->getSelectedData('tbl_batu',$id_batu),
-        );
-        $this->load->view('pages/detail_batu',$data);
-    }
-
 
 /*===========================================================================================================================================*/
 /*===========================================================================================================================================*/
@@ -38,7 +29,7 @@ class loginc extends CI_Controller {
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         //query the database
-        $result = $this->adminm->login($username, $password);
+        $result = $this->Loginm->login($username, $password);
         if($result) {
             $sess_array = array();
             foreach($result as $row) {

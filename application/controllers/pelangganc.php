@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class pelangganc extends CI_Controller {
     function __construct(){
         parent::__construct();
-
+        $this->load->model('Provinsim');
         if($this->session->userdata('LEVEL') == '' ){
             $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
             redirect('');
@@ -20,8 +20,8 @@ class pelangganc extends CI_Controller {
             'formTitle'=>'Halaman Pelanggan',
 
             'active_pelanggan'=>'active',
-            'data_pelanggan'=>$this->adminm->getAllData('tbl_customer'),
-            'data_prov'=>$this->adminm->getAllData('tbl_propinsi'),
+            'data_pelanggan'=>$this->Global_model->getAllData('tbl_customer'),
+            'data_prov'=>$this->Global_model->getAllData('tbl_propinsi'),
             
         );
         $this->load->view('elements/header', $data);
@@ -51,7 +51,7 @@ class pelangganc extends CI_Controller {
             'personal_email'=>$this->input->post('personal_email'),
             'keterangan'=>$this->input->post('keterangan'),
         );
-        $this->adminm->insertData('tbl_customer',$data);
+        $this->Global_model->insertData('tbl_customer',$data);
         redirect("pelangganc/data_pelanggan");
     }
 
@@ -76,13 +76,13 @@ class pelangganc extends CI_Controller {
             'personal_email'=>$this->input->post('personal_email'),
             'keterangan'=>$this->input->post('keterangan'),
         );
-        $this->adminm->updateData('tbl_customer',$data,$id);
+        $this->Global_model->updateData('tbl_customer',$data,$id);
         redirect("pelangganc/data_pelanggan");
     }
 
     function proses_hapus_pelanggans(){
         $id['customerid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_customer',$id);
+        $this->Global_model->deleteData('tbl_customer',$id);
 
         redirect("pelangganc/data_pelanggan");
     }
@@ -91,7 +91,7 @@ class pelangganc extends CI_Controller {
     // Ambil data ID Provinsi yang dikirim via ajax post
     $propinsiid = $this->input->post('propinsiid');
     
-    $kota = $this->adminm->viewByProvinsi($propinsiid);
+    $kota = $this->Provinsim->viewByProvinsi($propinsiid);
     
     // Buat variabel untuk menampung tag-tag option nya
     // Set defaultnya dengan tag option Pilih

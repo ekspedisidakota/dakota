@@ -20,7 +20,7 @@ class layananc extends CI_Controller {
             'formTitle'=>'Halaman Layanan',
 
             'active_layanan'=>'active',
-            'data_layanan'=>$this->adminm->getAllData('tbl_layanan'),
+            'data_layanan'=>$this->Global_model->getAllData('tbl_layanan'),
             
         );
         $this->load->view('elements/header', $data);
@@ -44,7 +44,7 @@ class layananc extends CI_Controller {
             'published'=>$this->input->post('published'),
             'view'=>$this->input->post('view'),
         );
-        $this->adminm->insertData('tbl_layanan',$data);
+        $this->Global_model->insertData('tbl_layanan',$data);
         redirect("layananc/data_layanan");
     }
 
@@ -64,13 +64,13 @@ class layananc extends CI_Controller {
             'view'=>$this->input->post('view'),
         );
     
-        $this->adminm->updateData('tbl_layanan',$data,$id);
+        $this->Global_model->updateData('tbl_layanan',$data,$id);
         redirect("layananc/data_layanan");
     }
 
     function proses_hapus_layanan(){
         $id['layananid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_layanan',$id);
+        $this->Global_model->deleteData('tbl_layanan',$id);
 
         redirect("layananc/data_layanan");
     }

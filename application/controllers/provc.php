@@ -21,7 +21,7 @@ class provc extends CI_Controller {
 
             'active_wilayah'=>'active',
             'active_prov'=>'active',
-            'data_prov'=>$this->adminm->get_all_data_prov(),
+            'data_prov'=>$this->Global_model->get_all_data_prov(),
             
             
         );
@@ -38,7 +38,7 @@ class provc extends CI_Controller {
             'update_userid'=>$this->input->post('update_userid'),
             'nama'=>$this->input->post('nama'),
         );
-        $this->adminm->insertData('tbl_propinsi',$data);
+        $this->Global_model->insertData('tbl_propinsi',$data);
         redirect("provc/data_prov");
     }
 
@@ -49,13 +49,13 @@ class provc extends CI_Controller {
             'update_userid'=>$this->input->post('update_userid'),
             'nama'=>$this->input->post('nama'),
         );
-        $this->adminm->updateData('tbl_propinsi',$data,$id);
+        $this->Global_model->updateData('tbl_propinsi',$data,$id);
         redirect("provc/data_prov");
     }
 
     function proses_hapus_propinsi(){
         $id['propinsiid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_propinsi',$id);
+        $this->Global_model->deleteData('tbl_propinsi',$id);
 
         redirect("negarac/data_prov");
     }

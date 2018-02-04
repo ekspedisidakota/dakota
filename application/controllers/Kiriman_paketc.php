@@ -20,7 +20,7 @@ class Kiriman_paketc extends CI_Controller {
             'formTitle'=>'Halaman Kiriman Paket',
 
             'active_kiriman'=>'active',
-            'data_kiriman'=>$this->adminm->getAllData('tbl_mitra'),
+            'data_kiriman'=>$this->Global_model->getAllData('tbl_mitra'),
            
             
         );
@@ -50,7 +50,7 @@ class Kiriman_paketc extends CI_Controller {
             'personal_email'=>$this->input->post('personal_email'),
             'keterangan'=>$this->input->post('keterangan'),
         );
-        $this->adminm->insertData('tbl_mitra',$data);
+        $this->Global_model->insertData('tbl_mitra',$data);
         redirect("mitrac/data_mitra");
     }
 
@@ -75,13 +75,13 @@ class Kiriman_paketc extends CI_Controller {
             'personal_email'=>$this->input->post('personal_email'),
             'keterangan'=>$this->input->post('keterangan'),
         );
-        $this->adminm->updateData('tbl_mitra',$data,$id);
+        $this->Global_model->updateData('tbl_mitra',$data,$id);
         redirect("mitrac/data_mitra");
     }
 
     function proses_hapus_pelanggans(){
         $id['mitraid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_mitra',$id);
+        $this->Global_model->deleteData('tbl_mitra',$id);
 
         redirect("mitrac/data_mitra");
     }

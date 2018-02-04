@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class kecamatanc extends CI_Controller {
     function __construct(){
         parent::__construct();
-
         if($this->session->userdata('LEVEL') == '' ){
             $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
             redirect('');
@@ -21,7 +20,7 @@ class kecamatanc extends CI_Controller {
 
             'active_wilayah'=>'active',
             'active_kec'=>'active',
-            'data_kecamatan'=>$this->adminm->getAllData('tbl_kota_kecamatan'),
+            'data_kecamatan'=>$this->Global_model->getAllData('tbl_kota_kecamatan'),
             
             
         );
@@ -40,7 +39,7 @@ class kecamatanc extends CI_Controller {
             'kodepos'=>$this->input->post('kodepos'),
             'propinsikotaid'=>$this->input->post('propinsikotaid'),
         );
-        $this->adminm->insertData('tbl_kota_kecamatan',$data);
+        $this->Global_model->insertData('tbl_kota_kecamatan',$data);
         redirect("kecamatanc/data_kecamatan");
     }
 
@@ -53,13 +52,13 @@ class kecamatanc extends CI_Controller {
             'kodepos'=>$this->input->post('kodepos'),
             'propinsikotaid'=>$this->input->post('propinsikotaid'),
         );
-        $this->adminm->updateData('tbl_kota_kecamatan',$data,$id);
+        $this->Global_model->updateData('tbl_kota_kecamatan',$data,$id);
         redirect("kecamatanc/data_kecamatan");
     }
 
     function proses_hapus_kecamatan(){
         $id['kotakecamatanid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_kota_kecamatan',$id);
+        $this->Global_model->deleteData('tbl_kota_kecamatan',$id);
 
         redirect("kecamatanc/data_kecamatan");
     }

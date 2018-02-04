@@ -4,12 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class mitrac extends CI_Controller {
     function __construct(){
         parent::__construct();
-
-        // if($this->session->userdata('LEVEL') == '' ){
-        //     $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
-        //     redirect('');
-        // };
-
+        if($this->session->userdata('LEVEL') == '' ){
+            $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
+            redirect('');
+        };
     }
     
 	public function data_mitra()
@@ -20,8 +18,8 @@ class mitrac extends CI_Controller {
             'formTitle'=>'Halaman Mitra',
 
             'active_mitra'=>'active',
-            'data_mitra'=>$this->adminm->getAllData('tbl_mitra'),
-            'data_prov'=>$this->adminm->getAllData('tbl_propinsi'),
+            'data_mitra'=>$this->Global_model->getAllData('tbl_mitra'),
+            'data_prov'=>$this->Global_model->getAllData('tbl_propinsi'),
             
         );
         $this->load->view('elements/header', $data);
@@ -50,7 +48,7 @@ class mitrac extends CI_Controller {
             'personal_email'=>$this->input->post('personal_email'),
             'keterangan'=>$this->input->post('keterangan'),
         );
-        $this->adminm->insertData('tbl_mitra',$data);
+        $this->Global_model->insertData('tbl_mitra',$data);
         redirect("mitrac/data_mitra");
     }
 
@@ -75,13 +73,13 @@ class mitrac extends CI_Controller {
             'personal_email'=>$this->input->post('personal_email'),
             'keterangan'=>$this->input->post('keterangan'),
         );
-        $this->adminm->updateData('tbl_mitra',$data,$id);
+        $this->Global_model->updateData('tbl_mitra',$data,$id);
         redirect("mitrac/data_mitra");
     }
 
     function proses_hapus_pelanggans(){
         $id['mitraid'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_mitra',$id);
+        $this->Global_model->deleteData('tbl_mitra',$id);
 
         redirect("mitrac/data_mitra");
     }

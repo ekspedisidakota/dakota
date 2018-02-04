@@ -21,7 +21,7 @@ class userc extends CI_Controller {
             'formTitle'=>'Tabel Data User',
 
             'active_user'=>'active',            
-            'data_user'=>$this->adminm->getAllData('tbl_user'),
+            'data_user'=>$this->Global_model->getAllData('tbl_user'),
         );		
 		$this->load->view('elements/header', $data);
 		$this->load->view('pages/user/data_user');
@@ -38,7 +38,7 @@ class userc extends CI_Controller {
 	            'formTitle'=>'Form Tambah User',
 
 	            'active_user'=>'active',            
-	            'id'=>$this->adminm->id_user(),
+	            'id'=>$this->Global_model->id_user(),
 
 	        );		
 			$this->load->view('elements/header', $data);
@@ -52,7 +52,7 @@ class userc extends CI_Controller {
 	            'formTitle'=>'Form Ubah User',
 
 	            'active_user'=>'active',            
-	            'data_user'=>$this->adminm->getSelectedData('tbl_user',$id_user),
+	            'data_user'=>$this->Global_model->getSelectedData('tbl_user',$id_user),
 	        );		
 			$this->load->view('elements/header', $data);
 			$this->load->view('pages/user/manage_data_user');
@@ -76,7 +76,7 @@ class userc extends CI_Controller {
 	            'alamat_user'=>$this->input->post('alamat_user'),
 	            'notelp_user'=>$this->input->post('notelp_user'),
 	        );
-	        $this->adminm->insertData('tbl_user',$data);
+	        $this->Global_model->insertData('tbl_user',$data);
 
 
     	} elseif ($key == '' AND $pass == '') {
@@ -89,7 +89,7 @@ class userc extends CI_Controller {
 	            'alamat_user'=>$this->input->post('alamat_user'),
 	            'notelp_user'=>$this->input->post('notelp_user'),	            
 	        );
-	        $this->adminm->updateData('tbl_user',$data,$id);
+	        $this->Global_model->updateData('tbl_user',$data,$id);
 
     	} elseif ($key == '' AND $pass != '') {
 	        $id['id_user'] = $this->input->post('id');
@@ -101,14 +101,14 @@ class userc extends CI_Controller {
 	            'alamat_user'=>$this->input->post('alamat_user'),
 	            'notelp_user'=>$this->input->post('notelp_user'),
 	        );
-	        $this->adminm->updateData('tbl_user',$data,$id);
+	        $this->Global_model->updateData('tbl_user',$data,$id);
     	}
         redirect("userc/data_user");
     }
 
     function proses_hapus_user(){
         $id['id_user'] = $this->uri->segment(3);
-        $this->adminm->deleteData('tbl_user',$id);
+        $this->Global_model->deleteData('tbl_user',$id);
 
         redirect("userc/data_user");
     }
