@@ -181,20 +181,6 @@
             <i class="fa fa-paper-plane"></i> <span>Kiriman</span>
           </a>
         </li>
-
-<!-- 
-<<<<<<< HEAD
-        <li class="<?php if (isset($active_counter)) { echo $active_counter; } ?>">
-          <a href="<?php echo base_url('beritac/data_berita')?>">
-            <i class="fa fa-eye"></i> <span>Counter</span>
-=======
-        <li class="<?php if (isset($active_fitur)) { echo $active_fitur; } ?>">
-          <a href="<?php echo base_url('fiturc/data_fitur')?>">
-            <i class="fa fa-eye"></i> <span>Fitur Tambahan</span>
->>>>>>> 59282ddc1ac2161578cd581ba2ea61606af65cb0
-          </a>
-        </li>
- -->
         <li class="header">Line</li>
         <li><a href="<?php echo base_url('loginc/logout')?>"><i class="fa fa-power-off text-red"></i> <span>Logout</span></a></li>
       </ul>
