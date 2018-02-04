@@ -5,10 +5,6 @@ class dashboardc extends CI_Controller {
     function __construct(){
         parent::__construct();
 
-        if($this->session->userdata('LEVEL') == '' ){
-            $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
-            redirect('');
-        };
 
     }
     
