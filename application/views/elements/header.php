@@ -46,6 +46,21 @@
 
   <script type="text/javascript" src="<?php echo base_url('assets/print_page/jquery.printPage.js')?>"></script>
   
+  <script>
+
+    function startCalc(){
+    interval = setInterval("calc()",1);}
+    function calc(){
+    one = document.autoSumForm.angsuran_pokok.value;
+    two = document.autoSumForm.angsuran_bunga.value;
+    three = document.autoSumForm.diskon.value;
+    sub = document.autoSumForm.sub.value = (one * 1) + (two * 1);
+    document.autoSumForm.jumlah.value = (sub * 1) - (three * 1);
+  }
+    function stopCalc(){
+    clearInterval(interval);}
+  </script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

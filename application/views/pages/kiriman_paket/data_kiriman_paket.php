@@ -93,7 +93,7 @@
           <h4 class="modal-title">Data Mitra</h4>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal" role="form" method="post" action="<?php echo base_url('mitrac/proses_simpan_mitra')?>">
+            <form class="form-horizontal" name='autoSumForm' role="form" method="post" action="<?php echo base_url('mitrac/proses_simpan_mitra')?>">
               <input type="hidden" name="create_date" value="<?php echo date('Y-m-d h:m:s'); ?>"></input>
               <input type="hidden" name="update_date" value="<?php echo date('Y-m-d h:m:s'); ?>"></input>
               <input type="hidden" name="create_userid" value="<?php echo $this->session->userdata('ID') ?>"></input>
@@ -248,31 +248,31 @@
                   <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">Biaya Pengiriman</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="" name="harimin">
+                      <input type='text' name='angsuran_pokok' class="form-control" onFocus="startCalc();" onBlur="stopCalc();" />
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">Biaya Packing</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="" name="harimax">
+                      <input type='text' name='angsuran_bunga' class="form-control" onFocus="startCalc();" onBlur="stopCalc();" />
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">Sub total</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="" name="harimax">
+                      <input readonly type=text value='0' name="sub" class="form-control" readonly>
                     </div>
                   </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">Diskon</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="" name="harimax">
+                      <input type='text' name="diskon" class="form-control"   onFocus="startCalc();" onBlur="stopCalc();"  />
                     </div>
                   </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">Total</label>
                     <div class="col-sm-9">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="" name="harimax">
+                      <input readonly type=text value='0' name="jumlah" class="form-control" readonly>
                     </div>
                   </div>
                 </div>                
