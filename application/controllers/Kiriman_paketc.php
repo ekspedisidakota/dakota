@@ -30,6 +30,22 @@ class Kiriman_paketc extends CI_Controller {
         $this->load->view('elements/footer');
   }
 
+
+  public function manage_data_kiriman()
+  {
+
+        $data=array(
+            'headerTitle'=>'Kiriman Paket',
+            'formTitle'=>'Halaman Kiriman Paket',
+
+            'active_kiriman'=>'active',
+                   
+        );
+        $this->load->view('elements/header', $data);
+        $this->load->view('pages/kiriman_paket/tambah_datakiriman');
+        $this->load->view('elements/footer');
+  }
+
     function proses_simpan_mitra() {
         $data=array(
             'create_date'=>$this->input->post('create_date'),

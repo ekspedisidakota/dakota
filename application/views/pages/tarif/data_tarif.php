@@ -102,7 +102,7 @@
                 <div class="col-sm-6">
                   <h4>Data Wilayah</h4><hr>
                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-5 control-label">Kecamatan</label>
+                    <label for="inputEmail3" class="col-sm-5 control-label">Kota</label>
                     <div class="col-sm-7">
                       <input type="email" class="form-control" id="inputEmail3" placeholder="Nama">
                     </div>

@@ -43,6 +43,8 @@
                           <div align="center">
                           <a  data-toggle="modal" data-target="#modal-default" class="btn btn-primary btn-xs"> <i class="fa fa-plus"></i> Tambah
                           </a>
+                          <a href="<?php echo base_url('kiriman_paketc/manage_data_kiriman');?>" class="btn btn-default btn-xs"> <i class="fa fa-edit"></i> Tambah
+                          </a>
                           </div>
                       </th>
                   </tr>
@@ -90,7 +92,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Data Mitra</h4>
+          <h4 class="modal-title">Data kiriman</h4>
         </div>
         <div class="modal-body">
             <form class="form-horizontal" name='autoSumForm' role="form" method="post" action="<?php echo base_url('mitrac/proses_simpan_mitra')?>">
