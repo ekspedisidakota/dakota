@@ -21,6 +21,7 @@ class Kiriman_paketc extends CI_Controller {
 
             'active_kiriman'=>'active',
             'data_kiriman'=>$this->Global_model->getAllData('tbl_mitra'),
+            'data_layanan'=>$this->Global_model->getAllData('tbl_layanan'),
            
             
         );

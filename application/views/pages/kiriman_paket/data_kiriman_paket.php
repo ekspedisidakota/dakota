@@ -211,8 +211,14 @@
                    <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="inputEmail3" >
-                        <option value="">pilih </option>
+                      <select class="form-control"  name="" id="propinsi">
+                        <option value="">Pilih</option>
+                        
+                        <?php
+                        foreach($data_layanan as $data){ 
+                          echo "<option value='".$data->layananid."'>".$data->judul."</option>";
+                        }
+                        ?>
                       </select>
                     </div>
                   </div>
