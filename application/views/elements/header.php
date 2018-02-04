@@ -188,11 +188,6 @@
             <i class="fa fa-eye"></i> <span>Fitur Tambahan</span>
           </a>
         </li>
-        <li class="<?php if (isset($active_counter)) { echo $active_counter; } ?>">
-          <a href="<?php echo base_url('beritac/data_berita')?>">
-            <i class="fa fa-eye"></i> <span>Counter</span>
-          </a>
-        </li>
  -->
         <li class="header">Line</li>
         <li><a href="<?php echo base_url('loginc/logout')?>"><i class="fa fa-power-off text-red"></i> <span>Logout</span></a></li>
