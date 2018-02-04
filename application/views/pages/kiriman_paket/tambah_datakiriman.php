@@ -21,204 +21,161 @@
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Element Form</h3>
+              <h3 class="box-title"></h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" method="post" name='autoSumForm' action="<?php echo base_url('userc/proses_data_user')?>">
-              <input type="hidden" name="create_date" value="<?php echo date('Y-m-d h:m:s'); ?>"></input>
-              <input type="hidden" name="update_date" value="<?php echo date('Y-m-d h:m:s'); ?>"></input>
-              <input type="hidden" name="create_userid" value="<?php echo $this->session->userdata('ID') ?>"></input>
-              <input type="hidden" name="update_userid" value="<?php echo $this->session->userdata('ID') ?>"></input>
+            <form role="form" method="post"  name='autoSumForm' action="<?php echo base_url('userc/proses_data_user')?>">
               <div class="box-body ">
-                <div class="col-sm-6">
-                  <h4>Pengirim</h4><hr>
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Pengirim</label>
-                    <div class="col-sm-9">
+
+                  <div class="col-md-6">
+                    <h4><b>Data Pengirim</b></h4><hr>
+                    <div class="form-group col-md-12">
+                      <label>Pengirim</label>
+                      <select name="level_user" class="form-control" required>
+                        <option value="">Pilih Pengirim</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Petugas">Petugas</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Alamat</label>
+                      <textarea class="form-control" ></textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Telepon</label>
                       <input type="text" class="form-control" id="inputEmail3" placeholder="" name="nama">
                     </div>
                   </div>
 
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
-                    <div class="col-sm-9">
-                      <textarea class="form-control" name="alamat">
-                        
-                      </textarea>
+                  <div class="col-md-6">
+                    <h4><b>Data Penerima</b></h4><hr>
+                    <div class="form-group col-md-12">
+                      <label>Penerima</label>
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="Penerima" name="Penerima">
+                    </div>                    
+                    <div class="form-group col-md-12">
+                      <label>Alamat</label>
+                      <textarea class="form-control" ></textarea>
                     </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Telepon</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputEmail3" name="kodepos" placeholder="">
-                    </div>
-                  </div>
-                </div>
-
-
-                  <div class="col-sm-6">
-                  <h4>Data Penerima</h4><hr>
-
-                      <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Pengirim</label>
-                    <div class="col-sm-9">
+                    <div class="form-group col-md-12">
+                      <label>Telepon</label>
                       <input type="text" class="form-control" id="inputEmail3" placeholder="" name="nama">
                     </div>
                   </div>
 
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Alamat</label>
-                    <div class="col-sm-9">
-                      <textarea class="form-control" name="alamat">
-                        
-                      </textarea>
-                    </div>
-                  </div>
-
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Telepon</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputEmail3" name="kodepos" placeholder="">
-                    </div>
-                  </div>
-
-                                 
-                </div>
-
-                <div class="col-sm-6">
-                  <h4>Data Pengirim</h4><hr>
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Jenis Pengirim</label>
-                    <div class="col-sm-9">
-                      <select class="form-control"  name="kota" id="kota">
-                      <option value="">Pilih</option>
-                    </select>
-                    </div>
-                  </div><br>
-
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Tanggal Transaksi</label>
-                    <div class="col-sm-9">
-                      <input type="date" class="form-control" id="inputEmail3" name="kodepos" placeholder="">
-                    </div>
-                  </div><br>
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">No Resi</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" id="inputEmail3" name="fax" placeholder="">
-                    </div>
-                  </div><br>
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Tujuan</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" id="inputEmail3" name="fax" placeholder="">
-                    </div>
-                  </div><br>
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">layanan</label>
-                    <div class="col-sm-9">
-                      <select class="form-control" id="inputEmail3" >
-                        <option value="">pilih layanan</option>
+                  <div class="col-md-6">
+                    <hr><h4><b>Data Pengiriman</b></h4><hr>
+                    <div class="form-group col-md-12">
+                      <label>Jenis Pengiriman</label>
+                      <select name="level_user" class="form-control" required>
+                        <option value="">Pilih Pengiriman</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Petugas">Petugas</option>
                       </select>
                     </div>
-                  </div><br>
-
-                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Prioritas</label>
-                    <div class="col-sm-9">
-                      <select class="form-control"  name="" id="propinsi">
-                        <option value="">Pilih</option>
-                        
-                        <?php
-                        foreach($data_layanan as $data){ 
-                          echo "<option value='".$data->layananid."'>".$data->judul."</option>";
-                        }
-                        ?>
+                    <div class="form-group col-md-12">
+                      <label>Tanggal Transaksi</label>
+                      <input type="date" class="form-control" id="inputEmail3" placeholder="" name="nama">
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>No Resi</label>
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="" name="nama">
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Tujuan</label>
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="" name="nama">
+                    </div>
+                    <div class="form-group col-md-12">
+                      <div class="col-md-9">
+                        <label>Layanan</label>
+                        <select name="level_user" class="form-control" required>
+                          <option value="">Pilih Layanan</option>
+                          <option value="Admin">Admin</option>
+                          <option value="Petugas">Petugas</option>
+                        </select>                        
+                      </div>
+                      <div class="col-md-3">
+                        <label>P</label>
+                        <a  data-toggle="modal" data-target="#modal-default" type="button" class="btn btn-info form-control">Tambah</a> 
+                      </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Prioritas</label>
+                      <select name="level_user" class="form-control" required>
+                        <option value="">Pilih Prioritas</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Petugas">Petugas</option>
                       </select>
                     </div>
-                  </div><br>
-
-                    <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Satuan Tarif</label>
-                    <div class="col-sm-9">
-                      <select class="form-control" id="inputEmail3" >
-                        <option value="">pilih </option>
+                    <div class="form-group col-md-12">
+                      <label>Satuan Tarif</label>
+                      <select name="level_user" class="form-control" required>
+                        <option value="">Pilih Satuan Tarif</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Petugas">Petugas</option>
                       </select>
                     </div>
-                  </div><br>
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Nilai Barang</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control" id="inputEmail3" name="fax" placeholder="">
-                    </div>
-                  </div><br>
-
-                   <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Gunakan Asuransi</label>
-                    <div class="col-sm-9">
-                      <select class="form-control" id="inputEmail3" >
-                        <option value="">pilih </option>
+                    <div class="form-group col-md-12">
+                      <label>Nilai Barang</label>
+                      <input type="text" class="form-control" id="inputEmail3" placeholder="" name="nama">
+                    </div>                    
+                    <div class="form-group col-md-12">
+                      <label>Gunakan Asuransi</label>
+                      <select name="level_user" class="form-control" required>
+                        <option value="">Pilih Pengiriman</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Petugas">Petugas</option>
                       </select>
                     </div>
                   </div>
-                </div>
 
-                <div class="col-sm-6">
-                  <h4>Estimasi Lama Pengiriman</h4><hr>
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Biaya Pengiriman</label>
-                    <div class="col-sm-9">
-                      <input type='text' name='angsuran_pokok' class="form-control" onFocus="startCalc();" onBlur="stopCalc();" />
-                    </div>
-                  </div><br>
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Biaya Packing</label>
-                    <div class="col-sm-9">
-                      <input type='text' name='angsuran_bunga' class="form-control" onFocus="startCalc();" onBlur="stopCalc();" />
-                    </div>
-                  </div><br>
-
-                  <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Sub total</label>
-                    <div class="col-sm-9">
-                      <input readonly type=text value='0' name="sub" class="form-control" readonly>
-                    </div>
-                  </div><br>
-
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Diskon</label>
-                    <div class="col-sm-9">
-                      <input type='text' name="diskon" class="form-control"   onFocus="startCalc();" onBlur="stopCalc();"  />
-                    </div>
-                  </div><br>
+                  <script>
+                  function startCalc(){
+                    interval = setInterval("calc()",1);
+                  }
                   
-                <div class="form-group">
-                    <label for="inputEmail3" class="col-sm-3 control-label">Total</label>
-                    <div class="col-sm-9">
-                      <input readonly type=text value='0' name="jumlah" class="form-control" readonly>
+                  function calc(){
+                    one = document.autoSumForm.angsuran_pokok.value;
+                    two = document.autoSumForm.angsuran_bunga.value;
+                    three = document.autoSumForm.diskon.value;
+                    sub = document.autoSumForm.sub.value = (one * 1) + (two * 1);
+                    document.autoSumForm.jumlah.value = sub-(sub*(three / 100));
+                  }
+
+                  function stopCalc(){
+                    clearInterval(interval);
+                  }
+                  </script>
+                  <div class="col-md-6">
+                    <hr><h4><b>Estimasi Lama Pengiriman</b></h4><hr>
+                    <div class="form-group col-md-12">
+                      <label>Biaya Pengiriman</label>
+                      <input name='angsuran_pokok' type="number" class="form-control" placeholder="" onFocus="startCalc();" onBlur="stopCalc();" >
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Biaya Packing</label>
+                      <input name='angsuran_bunga' type="number" class="form-control" placeholder="" onFocus="startCalc();" onBlur="stopCalc();" >
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Subtotal</label>
+                      <input name='sub'  type="number" class="form-control" placeholder="" readonly>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label>Diskon</label>
+                      <input name='diskon'  type="number" class="form-control" placeholder="" onFocus="startCalc();" onBlur="stopCalc();" >
+                    </div>
+                     <div class="form-group col-md-12">
+                      <label>Total</label>
+                      <input name='jumlah'  type="number" class="form-control" placeholder="" readonly>
                     </div>
                   </div>
-                </div>                
               </div>
               <!-- /.box-body -->
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
+              <div class="box-footer">
+                <button type="button" class="btn btn-primary">Simpan</button>
+                <a href="<?php echo base_url('userc/data_user')?>" type="button" class="btn btn-warning">Kembali</a>
+              </div>
             </form>
           </div>
           <!-- /.box -->
@@ -230,3 +187,54 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <!-- /.modal -->
+  <div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Tambah Barang</h4>
+        </div>
+        <script>
+        function calc(){
+          panjang = document.autoVolume.panjang.value;
+          lebar = document.autoVolume.lebar.value;
+          tinggi = document.autoVolume.tinggi.value;
+          document.autoVolume.volume.value = panjang*lebar*tinggi;
+        }
+
+        </script>
+        <form  name='autoVolume' role="form" method="post" action="<?php echo base_url('Kiriman_paketc/proses_cart')?>" enctype= "multipart/form-data">
+          <div class="modal-body">
+            <div class="box-body ">
+              <div class="form-group col-md-3">
+                <label>P</label>
+                <input name="panjang" type="number" class="form-control" onFocus="startCalc();" onBlur="stopCalc();" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label>L</label>
+                <input name="lebar" type="number" class="form-control" onFocus="startCalc();" onBlur="stopCalc();" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label>T</label>
+                <input name="tinggi" type="number" class="form-control" onFocus="startCalc();" onBlur="stopCalc();" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label>Vol(m3)</label>
+                <input name="volume" type="text" class="form-control" readonly>
+              </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Kembali</button>
+            <button type="submit" class="btn btn-primary">Simpan</button>
+          </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
