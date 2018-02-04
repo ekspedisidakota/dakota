@@ -183,11 +183,6 @@
         </li>
 
 <!-- 
-        <li class="<?php if (isset($active_fitur)) { echo $active_fitur; } ?>">
-          <a href="<?php echo base_url('fiturc/data_fitur')?>">
-            <i class="fa fa-eye"></i> <span>Fitur Tambahan</span>
-          </a>
-        </li>
         <li class="<?php if (isset($active_counter)) { echo $active_counter; } ?>">
           <a href="<?php echo base_url('beritac/data_berita')?>">
             <i class="fa fa-eye"></i> <span>Counter</span>
