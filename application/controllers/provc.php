@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class provc extends CI_Controller {
     function __construct(){
         parent::__construct();
-
+        $this->load->model('Provinsim');
         if($this->session->userdata('LEVEL') == '' ){
             $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
             redirect('');
@@ -21,7 +21,7 @@ class provc extends CI_Controller {
 
             'active_wilayah'=>'active',
             'active_prov'=>'active',
-            'data_prov'=>$this->Global_model->get_all_data_prov(),
+            'data_prov'=>$this->Provinsim->get_all_data_prov(),
             
             
         );

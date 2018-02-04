@@ -55,8 +55,6 @@
                        <td><?php echo $row->level_user; ?></td>
                        <td>
                           <div align="center">
-                          <a href="<?php echo base_url('userc/detail_data_user/'.$row->id_user);?>" class="btn btn-default btn-xs"> <i class="fa fa-eye"></i> Detail
-                          </a>
                           <a href="<?php echo base_url('userc/manage_data_user/'.$row->id_user);?>" class="btn btn-default btn-xs"> <i class="fa fa-edit"></i> Ubah
                           </a>
                           <a href="<?php echo base_url('userc/proses_hapus_user/'.$row->id_user);?>" class="btn btn-default btn-xs"> <i class="fa fa-trash-o"></i> Hapus

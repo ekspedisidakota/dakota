@@ -5,6 +5,7 @@ class userc extends CI_Controller {
 
     function __construct(){
         parent::__construct();
+        $this->load->model('Userm');
         if($this->session->userdata('LEVEL') == '' ){
             $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
             redirect('loginc');
@@ -38,7 +39,7 @@ class userc extends CI_Controller {
 	            'formTitle'=>'Form Tambah User',
 
 	            'active_user'=>'active',            
-	            'id'=>$this->Global_model->id_user(),
+	            'id'=>$this->Userm->id_user(),
 
 	        );		
 			$this->load->view('elements/header', $data);
