@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2018 at 07:13 PM
+-- Generation Time: Feb 04, 2018 at 04:49 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -419,6 +419,12 @@ ALTER TABLE `tbl_propinsi_kota`
   ADD PRIMARY KEY (`propinsikotaid`);
 
 --
+-- Indexes for table `tbl_tarif`
+--
+ALTER TABLE `tbl_tarif`
+  ADD PRIMARY KEY (`tarifid`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -469,6 +475,12 @@ ALTER TABLE `tbl_propinsi`
 --
 ALTER TABLE `tbl_propinsi_kota`
   MODIFY `propinsikotaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `tbl_tarif`
+--
+ALTER TABLE `tbl_tarif`
+  MODIFY `tarifid` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
