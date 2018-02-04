@@ -78,9 +78,6 @@ class adminm extends CI_Model{
         //create query to connect user login database
         $this->db->select('*');
         $this->db->from('tbl_user');
-/*
-        $this->db->join('tbl_pegawai', 'tbl_user.id_pegawai = tbl_pegawai.id_pegawai');
-*/
         $this->db->where('username', $username);
         $this->db->where('password', md5($password));
         $this->db->limit(1);
