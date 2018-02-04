@@ -92,6 +92,23 @@ class adminm extends CI_Model{
         $this->db->where('password', md5($password));
         $this->db->limit(1);
 
+        //get query and processing
+        $query = $this->db->get();
+        if($query->num_rows() == 1) {
+            return $query->result(); //if data is true
+        } else {
+            return false; //if data is wrong
+        }
+    }
+
+    function login_user($username, $password) {
+        //create query to connect user login database
+        $this->db->select('*');
+        $this->db->from('tbl_user');
+        $this->db->where('username', $username);
+        $this->db->where('password', md5($password));
+        $this->db->limit(1);
+
         $query = $this->db->get();
         if($query->num_rows() == 1) {
             return $query->result();
