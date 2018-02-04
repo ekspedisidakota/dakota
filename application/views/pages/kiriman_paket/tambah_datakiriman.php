@@ -136,10 +136,17 @@
                   }
                   
                   function calc(){
+
                     one = document.autoSumForm.angsuran_pokok.value;
                     two = document.autoSumForm.angsuran_bunga.value;
                     three = document.autoSumForm.diskon.value;
                     sub = document.autoSumForm.sub.value = (one * 1) + (two * 1);
+
+                    panjang = document.autoVolume.panjang.value;
+                    lebar = document.autoVolume.lebar.value;
+                    tinggi = document.autoVolume.tinggi.value;
+                    document.autoVolume.volume.value = panjang*lebar*tinggi;
+
                     document.autoSumForm.jumlah.value = sub-(sub*(three / 100));
                   }
 
@@ -194,36 +201,53 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Tambah Barang</h4>
+          <h4 class="modal-title">Tambah Barang <?php echo $this->cart->total_items(); ?></h4>
         </div>
-        <script>
-        function calc(){
-          panjang = document.autoVolume.panjang.value;
-          lebar = document.autoVolume.lebar.value;
-          tinggi = document.autoVolume.tinggi.value;
-          document.autoVolume.volume.value = panjang*lebar*tinggi;
-        }
-
-        </script>
         <form  name='autoVolume' role="form" method="post" action="<?php echo base_url('Kiriman_paketc/proses_cart')?>" enctype= "multipart/form-data">
+          <input name="id" type="hidden" value="<?php echo $this->cart->total_items(); ?>"></input>
           <div class="modal-body">
             <div class="box-body ">
               <div class="form-group col-md-3">
-                <label>P</label>
+                <label>Panjang (m)</label>
                 <input name="panjang" type="number" class="form-control" onFocus="startCalc();" onBlur="stopCalc();" required>
               </div>
               <div class="form-group col-md-3">
-                <label>L</label>
+                <label>Lebar (m)</label>
                 <input name="lebar" type="number" class="form-control" onFocus="startCalc();" onBlur="stopCalc();" required>
               </div>
               <div class="form-group col-md-3">
-                <label>T</label>
+                <label>Tinggi (m)</label>
                 <input name="tinggi" type="number" class="form-control" onFocus="startCalc();" onBlur="stopCalc();" required>
               </div>
               <div class="form-group col-md-3">
                 <label>Vol(m3)</label>
                 <input name="volume" type="text" class="form-control" readonly>
               </div>
+              <table class="table table-condensed">
+                <thead>
+                  <tr>
+                    <td>Panjang</td>
+                    <td>Lebar</td>
+                    <td>Tinggi</td>
+                    <td>Volume</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php 
+                    $i=0;
+                    foreach ($this->cart->contents() as $items) : 
+                    $i++;
+                  ?>
+                  <tr>
+                    <td><?= $items['options']['panjang'] ?> m</td>
+                    <td><?= $items['options']['lebar'] ?> m</td>
+                    <td><?= $items['options']['tinggi'] ?> m</td>
+                    <td><?= $items['options']['volume'] ?> m3</td>
+                  </tr>
+
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>

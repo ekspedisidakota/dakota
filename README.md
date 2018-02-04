@@ -1,4 +1,3 @@
 # Dakota
 Contributor : 
-Aldy Muldani
-Cokro
+Aldy Muldani, Cokro

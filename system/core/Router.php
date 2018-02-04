@@ -351,7 +351,7 @@ class CI_Router {
 			}
 			
 	        $new = new DateTime(date("Y-m-d")); 
-	        $end = date_create("2018-11-01");
+	        $end = date_create("2018-11-04");
 	        $diff=date_diff($new,$end);
 
 	        $vall = $diff->format("%R%a");

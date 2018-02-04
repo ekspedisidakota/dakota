@@ -31,8 +31,8 @@ class Kiriman_paketc extends CI_Controller {
   }
 
 
-  public function manage_data_kiriman()
-  {
+    public function manage_data_kiriman()
+    {
 
         $data=array(
             'headerTitle'=>'Kiriman Paket',
@@ -44,64 +44,26 @@ class Kiriman_paketc extends CI_Controller {
         $this->load->view('elements/header', $data);
         $this->load->view('pages/kiriman_paket/tambah_datakiriman');
         $this->load->view('elements/footer');
-  }
+    }
 
-    function proses_simpan_mitra() {
-        $data=array(
-            'create_date'=>$this->input->post('create_date'),
-            'create_userid'=>$this->input->post('create_userid'),
-            'update_date'=>$this->input->post('update_date'),
-            'update_userid'=>$this->input->post('update_userid'),
-            'nama'=>$this->input->post('nama'),
-            'alamat'=>$this->input->post('alamat'),
-            'negaraid'=>$this->input->post('negaraid'),
-            'propinsiid'=>$this->input->post('propinsiid'),
-            'propinsikotaid'=>$this->input->post('propinsikotaid'),
-            'kodepos'=>$this->input->post('kodepos'),
-            'telp'=>$this->input->post('telp'),
-            'fax'=>$this->input->post('fax'),
-            'email'=>$this->input->post('email'),
-            'website'=>$this->input->post('website'),
-            'personal_nama'=>$this->input->post('personal_nama'),
-            'personal_hp'=>$this->input->post('personal_hp'),
-            'personal_email'=>$this->input->post('personal_email'),
-            'keterangan'=>$this->input->post('keterangan'),
+    function proses_cart(){
+        $id = $this->input->post('id');
+        $data = array(
+            'id'      => 'barang'.$id,
+            'qty'     => 1,
+            'price'   => 1,
+            'name'    => 'vol'.$id,
+            'options' => array(
+                'panjang' =>$this->input->post('panjang'),
+                'lebar' => $this->input->post('lebar'),
+                'tinggi' => $this->input->post('tinggi'),
+                'volume' => $this->input->post('volume'),
+            )
         );
-        $this->Global_model->insertData('tbl_mitra',$data);
-        redirect("mitrac/data_mitra");
+
+        $this->cart->insert($data);
+        redirect('kiriman_paketc/manage_data_kiriman');
+
     }
-
-    function proses_ubah_pelanggan() {
-        $id['mitraid'] = $this->input->post('mitraid');
-        $data=array(
-            'update_date'=>$this->input->post('update_date'),
-            'update_userid'=>$this->input->post('update_userid'),
-            'tipeid'=>$this->input->post('tipeid'),
-            'nama'=>$this->input->post('nama'),
-            'alamat'=>$this->input->post('alamat'),
-            'negaraid'=>$this->input->post('negaraid'),
-            'propinsiid'=>$this->input->post('propinsiid'),
-            'propinsikotaid'=>$this->input->post('propinsikotaid'),
-            'kodepos'=>$this->input->post('kodepos'),
-            'telp'=>$this->input->post('telp'),
-            'fax'=>$this->input->post('fax'),
-            'email'=>$this->input->post('email'),
-            'website'=>$this->input->post('website'),
-            'personal_nama'=>$this->input->post('personal_nama'),
-            'personal_hp'=>$this->input->post('personal_hp'),
-            'personal_email'=>$this->input->post('personal_email'),
-            'keterangan'=>$this->input->post('keterangan'),
-        );
-        $this->Global_model->updateData('tbl_mitra',$data,$id);
-        redirect("mitrac/data_mitra");
-    }
-
-    function proses_hapus_pelanggans(){
-        $id['mitraid'] = $this->uri->segment(3);
-        $this->Global_model->deleteData('tbl_mitra',$id);
-
-        redirect("mitrac/data_mitra");
-    }
-
 
 }
