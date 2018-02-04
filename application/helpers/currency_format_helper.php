@@ -20,7 +20,10 @@ if ( ! function_exists('currency_format'))
     }
 
 
+    function call_modal($id_modal) {
+    	echo "<script type='text/javascript'> $(window).load(function(){ $('#".$id_modal."').modal('show'); }); </script>";
 
+    }
 
 
 }
