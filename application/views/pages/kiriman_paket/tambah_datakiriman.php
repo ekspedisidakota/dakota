@@ -34,8 +34,13 @@
                       <label>Pengirim</label>
                       <select name="level_user" class="form-control" required>
                         <option value="">Pilih Pengirim</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Petugas">Petugas</option>
+                        <?php
+                        if (is_array($data_pengirim)) {
+                          foreach ($data_pengirim as $row) {
+                            echo '<option value="'.$row->mitraid.'">'.$row->nama.'</option>';
+                          }
+                          }
+                        ?>
                       </select>
                     </div>
                     <div class="form-group col-md-12">
@@ -70,8 +75,13 @@
                       <label>Jenis Pengiriman</label>
                       <select name="level_user" class="form-control" required>
                         <option value="">Pilih Pengiriman</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Petugas">Petugas</option>
+                        <?php
+                        if (is_array($data_pengirim)) {
+                          foreach ($data_pengirim as $row) {
+                            echo '<option value="'.$row->mitraid.'">'.$row->nama.'</option>';
+                          }
+                          }
+                        ?>
                       </select>
                     </div>
                     <div class="form-group col-md-12">
@@ -91,8 +101,13 @@
                         <label>Layanan</label>
                         <select name="level_user" class="form-control" required>
                           <option value="">Pilih Layanan</option>
-                          <option value="Admin">Admin</option>
-                          <option value="Petugas">Petugas</option>
+                          <?php
+                          if (is_array($data_pengirim)) {
+                            foreach ($data_pengirim as $row) {
+                              echo '<option value="'.$row->mitraid.'">'.$row->nama.'</option>';
+                            }
+                            }
+                          ?>
                         </select>                        
                       </div>
                       <div class="col-md-3">
@@ -104,16 +119,26 @@
                       <label>Prioritas</label>
                       <select name="level_user" class="form-control" required>
                         <option value="">Pilih Prioritas</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Petugas">Petugas</option>
+                        <?php
+                        if (is_array($data_pengirim)) {
+                          foreach ($data_pengirim as $row) {
+                            echo '<option value="'.$row->mitraid.'">'.$row->nama.'</option>';
+                          }
+                          }
+                        ?>
                       </select>
                     </div>
                     <div class="form-group col-md-12">
                       <label>Satuan Tarif</label>
                       <select name="level_user" class="form-control" required>
                         <option value="">Pilih Satuan Tarif</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Petugas">Petugas</option>
+                        <?php
+                        if (is_array($data_pengirim)) {
+                          foreach ($data_pengirim as $row) {
+                            echo '<option value="'.$row->mitraid.'">'.$row->nama.'</option>';
+                          }
+                          }
+                        ?>
                       </select>
                     </div>
                     <div class="form-group col-md-12">
@@ -123,9 +148,9 @@
                     <div class="form-group col-md-12">
                       <label>Gunakan Asuransi</label>
                       <select name="level_user" class="form-control" required>
-                        <option value="">Pilih Pengiriman</option>
-                        <option value="Admin">Admin</option>
-                        <option value="Petugas">Petugas</option>
+                        <option value="">Pilih</option>
+                        <option value="Admin">Ya</option>
+                        <option value="Petugas">Tidak</option>
                       </select>
                     </div>
                   </div>

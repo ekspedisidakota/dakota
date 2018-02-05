@@ -4,7 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Kiriman_paketc extends CI_Controller {
     function __construct(){
         parent::__construct();
-
         if($this->session->userdata('LEVEL') == '' ){
             $this->session->set_flashdata('notif','LOGIN GAGAL USERNAME ATAU PASSWORD ANDA SALAH !');
             redirect('');
@@ -39,7 +38,8 @@ class Kiriman_paketc extends CI_Controller {
             'formTitle'=>'Halaman Kiriman Paket',
 
             'active_kiriman'=>'active',
-                   
+            'data_pengirim'=>$this->Global_model->getAllData('tbl_mitra'),
+
         );
         $this->load->view('elements/header', $data);
         $this->load->view('pages/kiriman_paket/tambah_datakiriman');

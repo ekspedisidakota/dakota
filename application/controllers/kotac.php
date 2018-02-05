@@ -22,7 +22,7 @@ class kotac extends CI_Controller {
 
             'active_wilayah'=>'active',
             'active_prov'=>'active',
-            'data_kota'=>$this->Global_model->get_all_data_kota($id_provinsi),
+            'data_kota'=>$this->Kotam->get_all_data_kota($id_provinsi),
         );
         $this->load->view('elements/header', $data);
         $this->load->view('pages/kota/data_kota');
